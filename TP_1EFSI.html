@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Encuesta datos personales</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body>
+    <center>
+        <form method="GET">
+            Nota de Matematica:
+            <input type="number" name="matematica" required /><br><br>
+            Nota de lengua:
+            <input type="number" name="lengua" required /><br><br>
+            Nota de EFSI:
+            <input type="number" name="EFSI" required /><br><br>
+            <button class="btn btn-primary" onclick="CalcularPromedio()" type="submit">Calcular
+                Promedio</button><br><br>
+            <button class="btn btn-primary" onclick="CheckInputsbyInput()" type="submit">Enviar notas</button><br><br>
+            <button class="btn btn-primary" onclick="MayorNota()" type="submit">Materia con mayor nota</button><br>
+        </form>     
+    
+    </center>
+</body>
+
+</html>
