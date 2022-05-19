@@ -11,18 +11,21 @@
     <center>
         <form method="GET">
             Nota de Matematica:
-            <input type="number" name="matematica" required /><br><br>
+            <input type="number" name="matematica" id="mate"  onkeyup="CheckInputsbyInput(document.getElementById('mate').value, 'mate')" /><br><br>
             Nota de lengua:
-            <input type="number" name="lengua" required /><br><br>
+            <input type="number" name="lengua" id="lengua"  onkeyup="CheckInputsbyInput(document.getElementById('lengua').value, 'lengua')" /><br><br>
             Nota de EFSI:
-            <input type="number" name="EFSI" required /><br><br>
+            <input type="number" name="efsi" id="efsi"  onkeyup="CheckInputsbyInput(document.getElementById('efsi').value, 'efsi')" /><br><br>
+            
             <button class="btn btn-primary" onclick="CalcularPromedio()" type="submit">Calcular
                 Promedio</button><br><br>
-            <button class="btn btn-primary" onclick="CheckInputsbyInput()" type="submit">Enviar notas</button><br><br>
             <button class="btn btn-primary" onclick="MayorNota()" type="submit">Materia con mayor nota</button><br>
-        </form>     
+        </form>
     
-    </center>
+    <div class="center">
+        <p id="resultado"></p>
+    </div>
+</center>
 </body>
 
 </html>

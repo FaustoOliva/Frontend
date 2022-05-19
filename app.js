@@ -1,41 +1,51 @@
-function validarNumero(matematica, lengua, EFSI) {
-    value = TP_1EFSI.getElementById("matematica");
-    return value;
-
-}
-
-function CheckInputsbyInput() {
+function CheckInputsbyInput(nota, materia) {
 
     var input = document.getElementsByTagName("input")
-    var validado;
-    for (let index = 0; index < input.length; index++) {
-        if (input[index].value >= 0 && input[index].value <= 10) {
-           validado = true;
-        } else {
-            validado = false;
-        }
+     if(nota > 0 && nota <= 10){
+        document.getElementById(materia).style.color="green"
+        return true;
+     }else{
+        document.getElementById(materia).style.color="red"
+        return false;
+     }
+         
     }
 
-    if(validado){ alert("Recibido.")}else{alert("[ERROR] Lo ingresado no es valido")}
+function ValidarNumeros(){
+    var mate = CheckInputsbyInput(document.getElementById('mate').value, 'mate')
+    var lengua = CheckInputsbyInput(document.getElementById('lengua').value, 'lengua')
+    var efsi = CheckInputsbyInput(document.getElementById('efsi').value, 'efsi')
+
+    if(mate && lengua && efsi){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 function CalcularPromedio() {
     var input = document.getElementsByTagName("input")
-    var promedio = 0;
-    for (let index = 0; index < input.length; index++) {
-        promedio =  promedio + parseInt(input[index].value) ;
-        console.log(promedio)
+    let mostrarp = 0;
+    
+    
+    if(ValidarNumeros()){
+        for (let index = 0; index < input.length; index++) {
+            mostrarp =  mostrarp + parseInt(input[index].value);
+        }
+        mostrarp = mostrarp / (input.length);
+        document.getElementById("resultado").innerHTML=mostrarp;
+        } else{
+        alert("Las notas no son validas. Cambienlas");
     }
-    promedio = promedio / input.length;
-
-    alert(`Promedio: ${promedio}`)
+   
 }
 
 function MayorNota(){
     var input = document.getElementsByTagName("input")
     var mayor = 0;
     var materia;
-    for (let index = 0; index < input.length; index++) {
+    if (ValidarNumeros()){
+        for (let index = 0; index < input.length; index++) {
         if (mayor < parseInt(input[index].value)){
             mayor = parseInt(input[index].value);
             materia = input[index].name;
@@ -43,9 +53,10 @@ function MayorNota(){
             materia = `${materia}  y  ${input[index].name}`;
         }
     }
-    
-    alert(`La materia con mayor nota es: ${materia}`)
-}
+   return materia;
 
-//no anda el required
-//y el verificar numero
+    } else {
+        alert ("Las notas no son validas. Cambienlas");
+    }
+    
+}
