@@ -1,6 +1,5 @@
 function CheckInputsbyInput(nota, materia) {
 
-    var input = document.getElementsByTagName("input")
     if (nota > 0 && nota <= 10) {
         document.getElementById(materia).style.color = "green";
         return true;
